@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EverythingCounter : MonoBehaviour
 {
-    public int astroidsnum;
+    public static int astroidsnum;
     public int foodnum;
     public int enemynum;
     // Start is called before the first frame update

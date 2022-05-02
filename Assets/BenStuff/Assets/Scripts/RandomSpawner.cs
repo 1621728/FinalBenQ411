@@ -10,21 +10,24 @@ public class RandomSpawner : MonoBehaviour
     public float distanceflt;
     public int objectlimit = 2;
     private int asn;
+    public Collider2D[] colliders;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         //Spawn
-        if (GameObject.Find("Counter").GetComponent<EverythingCounter>().astroidsnum < 100)
+        if (EverythingCounter.astroidsnum < 100)
         {
             Invoke("SpawnTime", 1);
         }
+
+        colliders = Physics2D.OverlapCircleAll (transform.position, outerRadius);
             
     }
 

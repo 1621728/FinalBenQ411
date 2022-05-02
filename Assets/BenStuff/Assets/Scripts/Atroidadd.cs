@@ -7,12 +7,12 @@ public class Atroidadd : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Find("Counter").GetComponent<EverythingCounter>().astroidsnum++;
+        EverythingCounter.astroidsnum++;
     }
 
     // Update is called once per frame
     void OnDestroy()
     {
-        GameObject.Find("Counter").GetComponent<EverythingCounter>().astroidsnum--;
+        EverythingCounter.astroidsnum--;
     }
 }

@@ -24,7 +24,7 @@ public class KillScript : MonoBehaviour
         }
         if (this.gameObject.tag.Equals("Astroid"))
         {
-            GameObject.Find("Counter").GetComponent<EverythingCounter>().astroidsnum--;
+            EverythingCounter.astroidsnum--;
         }
         if (this.gameObject.tag.Equals("Enemy"))
         {

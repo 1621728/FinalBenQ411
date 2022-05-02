@@ -7,7 +7,7 @@ public class EnemyScript : MonoBehaviour
 {
     public int agro = 10;
     int randomTarget;
-    public Transform target;
+    private Transform target;
     private Rigidbody2D rb2;
     public float thrustScale;
     public float distance;
@@ -31,6 +31,10 @@ public class EnemyScript : MonoBehaviour
             randomTarget = Random.Range(0, varyTargets.Length);
             target = varyTargets[randomTarget].transform;
         }
+        else
+        {
+            target = null;
+        }
     }
     void followMouse()
         {
@@ -50,10 +54,15 @@ public class EnemyScript : MonoBehaviour
         {
             GetNewTarget();
         }
-        followMouse();
 
+        if (target != null)
+        {
+            followMouse();
+        }
         
-        if(distance < agro)
+
+
+        if (distance < agro)
         {
             target = chase.transform;
         }
