@@ -9,6 +9,7 @@ TagManager:
   - Food
   - Astroid
   - Enemy
+  - Seek
   layers:
   - Default
   - TransparentFX
