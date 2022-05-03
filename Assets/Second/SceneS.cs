@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneS : MonoBehaviour
 {
 
-    public void OnButtonPress()
+    public void PlayGame()
     {
         SceneManager.LoadScene("Test scene");
     }

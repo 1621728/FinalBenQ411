@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ToT : MonoBehaviour
 {
 
-    public void OnButtonPress()
+    public void OpenTutorial()
     {
         SceneManager.LoadScene("Tutorial");
     }

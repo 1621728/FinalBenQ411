@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ToC : MonoBehaviour
 {
 
-    public void OnButtonPress()
+    public void OpenCredits()
     {
         SceneManager.LoadScene("Credits");
     }
