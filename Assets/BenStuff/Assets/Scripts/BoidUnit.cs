@@ -96,7 +96,7 @@ public class BoidUnit : MonoBehaviour
     {
 
         //If selected = false.
-        if(isSelected == false)
+        if (isSelected == false)
         {
             time += Time.deltaTime;
             if (time >= interpolationPeriod)
@@ -104,9 +104,13 @@ public class BoidUnit : MonoBehaviour
                 GetNewTarget();
                 time = 0.0f;
             }
-            Seek();
+            if (target != null)
+            {
+                Seek();
+            }
         }
 
+        //Turn off at win
         if (Score.boidNumber == Score.targetscore)
         {
             this.gameObject.SetActive(false);

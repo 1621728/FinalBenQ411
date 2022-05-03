@@ -23,8 +23,12 @@ public class RandomSpawner : MonoBehaviour
     {
         //Spawn
         if (EverythingCounter.astroidsnum < 100)
-        {
-            Invoke("SpawnTime", 1);
+        {   
+            if(Score.boidNumber <= Score.targetscore)
+            {
+                Invoke("SpawnTime", 1);
+            }
+              
         }
 
         colliders = Physics2D.OverlapCircleAll (transform.position, outerRadius);

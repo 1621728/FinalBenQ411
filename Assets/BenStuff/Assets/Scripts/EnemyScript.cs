@@ -7,7 +7,7 @@ public class EnemyScript : MonoBehaviour
 {
     public int agro = 10;
     int randomTarget;
-    private Transform target;
+    public Transform target;
     private Rigidbody2D rb2;
     public float thrustScale;
     public float distance;
@@ -20,7 +20,11 @@ public class EnemyScript : MonoBehaviour
         //chase = GameObject.FindGameObjectWithTag("Clone");
         GetNewTarget();
         rb2 = GetComponent<Rigidbody2D>();
-        distance = Vector2.Distance(this.transform.position, target.transform.position);
+        if(Score.boidNumber <= Score.targetscore)
+        {
+            //distance = Vector2.Distance(this.transform.position, target.transform.position);
+        }
+        
     }
     void GetNewTarget()
     {
@@ -28,8 +32,12 @@ public class EnemyScript : MonoBehaviour
         varyTargets = GameObject.FindGameObjectsWithTag("Clone");
         if (varyTargets.Length > 0)
         {
-            randomTarget = Random.Range(0, varyTargets.Length);
-            target = varyTargets[randomTarget].transform;
+            if(Score.boidNumber <= Score.targetscore)
+            {
+                randomTarget = Random.Range(0, varyTargets.Length);
+                target = varyTargets[randomTarget].transform;
+            }
+            
         }
         else
         {

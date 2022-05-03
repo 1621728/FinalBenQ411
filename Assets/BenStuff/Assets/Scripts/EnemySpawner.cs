@@ -28,20 +28,24 @@ public class EnemySpawner : MonoBehaviour
         if (time >= interpolationPeriod)
         {
             time = 0.0f;
-            if (Score.boidNumber > 1)
+            if(Score.boidNumber <= Score.targetscore)
             {
-                SpawnObjectAtRandom();
-                //action.Play();
+                if (Score.boidNumber > 1)
+                {
+                    SpawnObjectAtRandom();
+                    //action.Play();
+                }
+                if (Score.boidNumber > 20)
+                {
+                    SpawnObjectAtRandom();
+                    SpawnObjectAtRandom();
+                    SpawnObjectAtRandom();
+                    SpawnObjectAtRandom();
+                    SpawnObjectAtRandom();
+                    //action.Play();
+                }
             }
-            if (Score.boidNumber > 20)
-            {
-                SpawnObjectAtRandom();
-                SpawnObjectAtRandom();
-                SpawnObjectAtRandom();
-                SpawnObjectAtRandom();
-                SpawnObjectAtRandom();
-                //action.Play();
-            }
+            
         }
     }
 
