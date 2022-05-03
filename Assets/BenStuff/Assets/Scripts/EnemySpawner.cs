@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public AudioSource action;
     private float time = 0.0f;
-    public float interpolationPeriod = 0.1f;
+    public float interpolationPeriod = 2f;
     public GameObject ItemPrefab;
     public float outerRadius = 100;
     public int spawnnumber;

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BoidUnit : MonoBehaviour
 {
+    public bool autobehave = false;
     private float time = 0.0f;
     public float interpolationPeriod = 0.1f;
     private Transform target;
@@ -96,19 +97,23 @@ public class BoidUnit : MonoBehaviour
     {
 
         //If selected = false.
-        if (isSelected == false)
+        if(autobehave == true)
         {
-            time += Time.deltaTime;
-            if (time >= interpolationPeriod)
+            if (isSelected == false)
             {
-                GetNewTarget();
-                time = 0.0f;
-            }
-            if (target != null)
-            {
-                Seek();
+                time += Time.deltaTime;
+                if (time >= interpolationPeriod)
+                {
+                    GetNewTarget();
+                    time = 0.0f;
+                }
+                if (target != null)
+                {
+                    Seek();
+                }
             }
         }
+        
 
         //Turn off at win
         if (Score.boidNumber == Score.targetscore)

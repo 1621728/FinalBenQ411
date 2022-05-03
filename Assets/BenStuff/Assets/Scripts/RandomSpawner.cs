@@ -22,11 +22,12 @@ public class RandomSpawner : MonoBehaviour
     void Update()
     {
         //Spawn
-        if (EverythingCounter.astroidsnum < 100)
+        if (EverythingCounter.astroidsnum < 50)
         {   
             if(Score.boidNumber <= Score.targetscore)
             {
-                Invoke("SpawnTime", 1);
+                //EverythingCounter.astroidsnum++;
+                Invoke("SpawnTime", 2);
             }
               
         }
