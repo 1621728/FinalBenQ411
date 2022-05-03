@@ -17,10 +17,10 @@ public class EnemyScript : MonoBehaviour
     {
         
         
-        chase = GameObject.FindGameObjectWithTag("Clone");
+        //chase = GameObject.FindGameObjectWithTag("Clone");
         GetNewTarget();
         rb2 = GetComponent<Rigidbody2D>();
-        distance = Vector2.Distance(this.transform.position, chase.transform.position);
+        distance = Vector2.Distance(this.transform.position, target.transform.position);
     }
     void GetNewTarget()
     {
@@ -50,6 +50,12 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Score.boidNumber > Score.targetscore)
+        {
+            this.gameObject.SetActive(false);
+        }
+
         if (target == null)
         {
             GetNewTarget();
@@ -64,8 +70,10 @@ public class EnemyScript : MonoBehaviour
 
         if (distance < agro)
         {
-            target = chase.transform;
+            
         }
+
+        
     }
 
     private void OnCollision2D(Collider2D collision)

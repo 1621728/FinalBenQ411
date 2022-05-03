@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
     public GameObject loseMenuUI;
     public GameObject WinmenuUI;
     public GameObject Sizelist;
-    public static int targetscore = 50;
+    public static int targetscore = 10;
 
     public static int boidNumber;
     public Text uiText;
@@ -22,7 +22,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (boidNumber == targetscore)
+        if (boidNumber > targetscore)
         {
             Debug.Log("Win");
             WinmenuUI.SetActive(true);

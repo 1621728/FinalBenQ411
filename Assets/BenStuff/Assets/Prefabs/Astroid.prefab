@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 1048170096592102579}
   m_Layer: 0
   m_Name: Astroid
-  m_TagString: Untagged
+  m_TagString: Astroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -348,6 +348,7 @@ MonoBehaviour:
   minVal: 0.1
   maxVal: 5
   rn: 0
+  distance: 0
 --- !u!114 &8409452164663208025
 MonoBehaviour:
   m_ObjectHideFlags: 0
