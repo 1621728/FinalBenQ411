@@ -22,7 +22,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (boidNumber == targetscore)
+        if (boidNumber >= targetscore)
         {
             Debug.Log("Win");
             WinmenuUI.SetActive(true);

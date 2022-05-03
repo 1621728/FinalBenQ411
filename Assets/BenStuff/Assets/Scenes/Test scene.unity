@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -21979,7 +21979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0561523ca2ddeb479d4cec182e457dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  astroidsnum: 0
   foodnum: 0
   enemynum: 0
 --- !u!1 &931639742
@@ -24067,6 +24066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee57a923c008e5240bc2aae2fdaefe6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interpolationPeriod: 5
   die: {fileID: 0}
   rotateScale: 1
   thrustScale: 900

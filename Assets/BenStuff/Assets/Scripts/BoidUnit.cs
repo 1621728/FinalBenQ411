@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class BoidUnit : MonoBehaviour
 {
+    private float time = 0.0f;
+    public float interpolationPeriod = 0.1f;
+    private Transform target;
+    int randomTarget;
     public AudioSource die;
     public float rotateScale;
     public float thrustScale;
@@ -33,7 +37,7 @@ public class BoidUnit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetNewTarget();
         //Get RigidBody 2D
         rb2 = GetComponent<Rigidbody2D>();
        // isSelected = true;
@@ -42,6 +46,36 @@ public class BoidUnit : MonoBehaviour
         //GameObject.Find("Cm vcam1").GetComponent<CinemachineVirtualCamera>().Follow = this.transform;
     }
 
+    void GetNewTarget()
+    {
+        GameObject[] varyTargets;
+        varyTargets = GameObject.FindGameObjectsWithTag("Astroid");
+        if (varyTargets.Length > 0)
+        {
+            randomTarget = Random.Range(0, varyTargets.Length);
+            target = varyTargets[randomTarget].transform;
+        }
+        else
+        {
+            target = null;
+        }
+
+        
+    }
+
+    void Seek()
+    {
+        Vector2 direction = new Vector2(target.transform.position.x - transform.position.x, target.transform.position.y - transform.position.y);
+        transform.up = direction;
+
+        //MoveForward
+        rb2.AddForce(transform.up * thrustScale * Time.deltaTime);
+    }
+
+    void Targets()
+    {
+        GetNewTarget();
+    }
     //navigation to mouse////////////////////////////////////////
     void followMouse()
     {
@@ -60,6 +94,26 @@ public class BoidUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //If selected = false.
+        if(isSelected == false)
+        {
+            time += Time.deltaTime;
+            if (time >= interpolationPeriod)
+            {
+                GetNewTarget();
+                time = 0.0f;
+            }
+
+            Seek();
+            
+            if(target == null)
+            {
+                GetNewTarget();
+            }
+
+        }
+
         if (Score.boidNumber == Score.targetscore)
         {
             this.gameObject.SetActive(false);
@@ -89,15 +143,6 @@ public class BoidUnit : MonoBehaviour
             followMouse();
         }
 
-        //If unit is selected
-        //if (isSelected == true)
-        //{
-        //    GameObject.Find("Cm vcam1").GetComponent<CinemachineVirtualCamera>().Follow = this.transform;
-        //}
-        //else
-        //{
-        //    GameObject.Find("Cm vcam1").GetComponent<CinemachineVirtualCamera>().Follow = null;
-        //}
             ///boid Highlight
             if (isSelected == true)
         {
