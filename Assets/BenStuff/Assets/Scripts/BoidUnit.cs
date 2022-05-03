@@ -49,7 +49,7 @@ public class BoidUnit : MonoBehaviour
     void GetNewTarget()
     {
         GameObject[] varyTargets;
-        varyTargets = GameObject.FindGameObjectsWithTag("Astroid");
+        varyTargets = GameObject.FindGameObjectsWithTag("Food");
         if (varyTargets.Length > 0)
         {
             randomTarget = Random.Range(0, varyTargets.Length);
@@ -104,14 +104,7 @@ public class BoidUnit : MonoBehaviour
                 GetNewTarget();
                 time = 0.0f;
             }
-
             Seek();
-            
-            if(target == null)
-            {
-                GetNewTarget();
-            }
-
         }
 
         if (Score.boidNumber == Score.targetscore)

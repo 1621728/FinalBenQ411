@@ -24066,7 +24066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee57a923c008e5240bc2aae2fdaefe6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interpolationPeriod: 5
+  interpolationPeriod: 2
   die: {fileID: 0}
   rotateScale: 1
   thrustScale: 900
