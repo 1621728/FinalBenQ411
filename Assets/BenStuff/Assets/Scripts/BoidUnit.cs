@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BoidUnit : MonoBehaviour
 {
+    public float range = 10;
     public bool autobehave = false;
     private float time = 0.0f;
     public float interpolationPeriod = 0.1f;
@@ -34,6 +35,7 @@ public class BoidUnit : MonoBehaviour
     public bool sdam;
     //Divide number
     public float sdamn;
+    private GameObject targetObj;
 
     // Start is called before the first frame update
     void Start()
@@ -49,17 +51,32 @@ public class BoidUnit : MonoBehaviour
 
     void GetNewTarget()
     {
-        GameObject[] varyTargets;
-        varyTargets = GameObject.FindGameObjectsWithTag("Food");
-        if (varyTargets.Length > 0)
+        Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, range);
+        foreach (Collider2D collider2D in colliderArray)
         {
-            randomTarget = Random.Range(0, varyTargets.Length);
-            target = varyTargets[randomTarget].transform;
+            if(collider2D.gameObject.tag == "Food")
+            {
+                target = collider2D.gameObject.transform;
+            }
+            else
+            {
+                GameObject[] varyTargets;
+
+                varyTargets = GameObject.FindGameObjectsWithTag("Food");
+
+                if (varyTargets.Length > 0)
+                {
+                    randomTarget = Random.Range(0, varyTargets.Length);
+                    target = varyTargets[randomTarget].transform;
+                }
+                else
+                {
+                    target = null;
+                }
+            }
         }
-        else
-        {
-            target = null;
-        }
+
+       
 
         
     }
@@ -95,7 +112,7 @@ public class BoidUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         //If selected = false.
         if(autobehave == true)
         {
@@ -109,9 +126,10 @@ public class BoidUnit : MonoBehaviour
                 }
                 if (target != null)
                 {
+                    Debug.Log(Physics2D.OverlapCircleAll(transform.position, range));
                     Seek();
                 }
-            }
+            }          
         }
         
 
