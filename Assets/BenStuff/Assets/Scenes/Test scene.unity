@@ -5445,7 +5445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 10
-  autobehave: 0
+  autobehave: 1
   interpolationPeriod: 5
   die: {fileID: 0}
   rotateScale: 1
