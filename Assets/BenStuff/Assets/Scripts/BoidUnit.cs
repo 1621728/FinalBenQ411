@@ -74,11 +74,7 @@ public class BoidUnit : MonoBehaviour
                     target = null;
                 }
             }
-        }
-
-       
-
-        
+        }     
     }
 
     void Seek()
