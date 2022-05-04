@@ -116,7 +116,7 @@ public class BoidUnit : MonoBehaviour
         
 
         //Turn off at win
-        if (Score.boidNumber == Score.targetscore)
+        if (Score.boidNumber >= Score.targetscore)
         {
             this.gameObject.SetActive(false);
         }
