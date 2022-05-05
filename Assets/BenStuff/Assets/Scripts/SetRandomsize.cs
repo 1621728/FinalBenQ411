@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SetRandomsize : MonoBehaviour
 {
+    private AudioSource music;
     public float minVal;
     public float maxVal;
     private Vector3 v3;
