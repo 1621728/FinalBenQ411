@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Hoverplay : MonoBehaviour
 {
-    // Start is called before the first frame update
     public AudioSource hover;
-    void Start()
+    public void ButtonHighlighted(int track)
+    {
+        if (track == 1)
+        {
+            hover.Play();
+            Debug.Log("Play button highlighted");
+        }
+    }
+
+    
+    void OnMouseOver()
     {
         
     }
 
-    void OnMouseOver()
-    {
-        hover.Play();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
