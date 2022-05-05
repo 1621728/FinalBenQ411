@@ -40,8 +40,6 @@ public class EnemySpawner : MonoBehaviour
                     SpawnObjectAtRandom();
                     SpawnObjectAtRandom();
                     SpawnObjectAtRandom();
-                    SpawnObjectAtRandom();
-                    SpawnObjectAtRandom();
                     //action.Play();
                 }
             }

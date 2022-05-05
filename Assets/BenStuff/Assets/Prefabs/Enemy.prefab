@@ -1140,8 +1140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c0f2e43e0d18a47b8bf304f41c0a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  agro: 10
   target: {fileID: 0}
   thrustScale: 900
+  distance: 0
 --- !u!114 &1890816465239614883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,9 +1170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8991727795b825049a7b930fea25e44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minVal: 0.5
+  minVal: 1
   maxVal: 2
   rn: 0
+  distance: 0
 --- !u!114 &-9223032607036734712
 MonoBehaviour:
   m_ObjectHideFlags: 0
