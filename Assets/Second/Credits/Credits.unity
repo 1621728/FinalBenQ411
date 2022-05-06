@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 961, y: 0}
+  m_AnchoredPosition: {x: 970, y: -38}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &147390411
@@ -178,7 +178,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "-----------------\nAudio SFX credits\n-----------------\nEdited mario
-    coin SFX\nMade by\n- Nintendo - \nOuch SFX (Stifflip)\nFrom worms 2"
+    coin SFX\nMade by\n- Nintendo - \nOuch SFX (Stifflip)\nFrom worms 2\n(pulled
+    from youtube channel\n \"froglied\")\n\"hi\" sfx\nMade by\n - All Sound - \non
+    Youtube"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -241,7 +243,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -11.8526, w: -0.7698364}
+  m_margin: {x: 0, y: -2.9157715, z: -11.8526, w: -166.96939}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1373,7 +1375,8 @@ MonoBehaviour:
   m_text: "-------------------\nAudio Music credits\n-------------------\nGame music
     by\n - Blue Stahli -\n(Car Chase Club Action)\nStar wars menu music by\n - John
     Williams -\nStar wars tutorial music by\n- FalKKonE -\n(Star wars Imperial March
-    Metal cover(Inspired by John Williams))\n\n"
+    Metal cover(Inspired by John Williams))\nCredit music by \n(Youtube Channel)\n
+    - TrapMusiHDTV -\n(SpongeBob Chase Song)\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1436,7 +1439,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -29.157898, y: 0, z: -46.842102, w: -190.29575}
+  m_margin: {x: -29.157898, y: 122.46277, z: -46.842102, w: -190.29575}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
