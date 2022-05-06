@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1036,7 +1036,7 @@ MonoBehaviour:
     and then shift to start selecting all clones on screen.\nRight Click to Deselect
     all clones.\nEat yellow food to charge up.\nPress space after charge to clone.\nAvoid
     the purple aliens.\nMoving to fast and crashing into anything will kill you.\n\nWin
-    condition is to have 50 clones.\n\n\t\t    Good Luck!...\n"
+    condition is to have 25 clones.\n\n\t\t    Good Luck!...\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
