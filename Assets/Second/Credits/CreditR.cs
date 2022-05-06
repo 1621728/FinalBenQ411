@@ -28,6 +28,7 @@ public class CreditR : MonoBehaviour
         }
         //turn back on the "0th"
         creditScenes[0].SetActive(true);
+        
 
     }
 
