@@ -6,7 +6,7 @@ using UnityEngine;
 public class CreditR : MonoBehaviour
 {
 
-    private static int nScreens = 6;
+    private static int nScreens = 4;
     private GameObject[] creditScenes = new GameObject[nScreens];
     private static int swapCount = 0;
 
@@ -18,8 +18,6 @@ public class CreditR : MonoBehaviour
         creditScenes[1] = GameObject.Find("Credit2");
         creditScenes[2] = GameObject.Find("Credit3");
         creditScenes[3] = GameObject.Find("Credit4");
-        creditScenes[4] = GameObject.Find("Credit5");
-        creditScenes[5] = GameObject.Find("Credit6");
 
         //turn all scenes off
         for (int i = 0; i < nScreens; i++)
