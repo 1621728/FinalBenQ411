@@ -9,7 +9,7 @@ public class Stopafter30 : MonoBehaviour
     void Start()
     {
         //Start the coroutine we define below named ExampleCoroutine.
-        StartCoroutine(ExampleCoroutine());
+        //StartCoroutine(ExampleCoroutine());
         music = GetComponent<AudioSource>();
     }
 
