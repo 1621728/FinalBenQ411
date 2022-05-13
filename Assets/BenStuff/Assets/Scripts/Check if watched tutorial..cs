@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Checkifwatchedtutorial : MonoBehaviour
 {
-    public bool checktutorial { get; set; }
+    public int checktutorial = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        //checktutorial = PlayerPrefs
+        //checktutorial = Pl
     }
 
     // Update is called once per frame
