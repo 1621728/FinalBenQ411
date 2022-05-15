@@ -3,10 +3,11 @@
 public class UnitDrag : MonoBehaviour
 {
     Camera myCam;
-
+    public AudioSource music;
     //graphical
     [SerializeField]
     RectTransform boxVisual;
+    private float fixedDeltaTime;
 
     //logical
     Rect selectionBox;
@@ -21,6 +22,7 @@ public class UnitDrag : MonoBehaviour
         startPosition = Vector2.zero;
         endPosition = Vector2.zero;
         DrawVisual();
+        this.fixedDeltaTime = Time.fixedDeltaTime;
     }
 
     // Update is called once per frame
@@ -29,35 +31,53 @@ public class UnitDrag : MonoBehaviour
         //when clicked
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            
+            
+            
+                
             if (Input.GetMouseButtonDown(0))
-        {
+            {
             startPosition = Input.mousePosition;
             selectionBox = new Rect();
-        }
+            }
 
-        //when dragging
-        if (Input.GetMouseButton(0))
-        {
-            endPosition = Input.mousePosition;
-            DrawVisual();
-            DrawSelection();
-        }
-        //when release click
-        if (Input.GetMouseButtonUp(0))
-        {
-            SelectUnits();
-            startPosition = Vector2.zero;
-            endPosition = Vector2.zero;
-            DrawVisual();
-        }
+         //when dragging
+            if (Input.GetMouseButton(0))
+            {
+                endPosition = Input.mousePosition;
+                DrawVisual();
+                DrawSelection();
+            }
+         //when release click
+            if (Input.GetMouseButtonUp(0))
+            {
+                SelectUnits();
+                startPosition = Vector2.zero;
+                endPosition = Vector2.zero;
+                DrawVisual();
+            }
         }
         else
         {
             startPosition = Vector2.zero;
             endPosition = Vector2.zero;
             DrawVisual();
+            
         }
-        
+
+        if (Input.GetKey("x"))
+        {
+            Time.timeScale = 0.7f;
+            music.pitch = 0.7f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+            music.pitch = 1.0f;
+            // Adjust fixed delta time according to timescale
+            // The fixed delta time will now be 0.02 real-time seconds per frame
+            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
+        }
     }
 
 
