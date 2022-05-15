@@ -128,6 +128,11 @@ public class BoidUnit : MonoBehaviour
             }          
         }
         
+        //Select all
+        if (Input.GetKeyDown("z"))
+        {
+            isSelected = true;
+        }
 
         //Turn off at win
         if (Score.boidNumber >= Score.targetscore)
