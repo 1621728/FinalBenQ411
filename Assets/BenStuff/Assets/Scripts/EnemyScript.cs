@@ -5,6 +5,8 @@ using Cinemachine;
 
 public class EnemyScript : MonoBehaviour
 {
+    public GameObject boidguts;
+    public GameObject dust;
     public int agro = 10;
     int randomTarget;
     public Transform target;
@@ -84,11 +86,15 @@ public class EnemyScript : MonoBehaviour
         
     }
 
-    private void OnCollision2D(Collider2D collision)
+    public void OnCollisionEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Astroid")
+        {
+            Instantiate(dust, this.transform.position, Quaternion.identity);
+        }
         if (collision.gameObject.tag == "Clone")
         {
-            Destroy(this.gameObject);
+            Instantiate(boidguts, this.transform.position, Quaternion.identity);
         }
     }
 }

@@ -1140,6 +1140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c0f2e43e0d18a47b8bf304f41c0a9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boidguts: {fileID: 7319175451262291965, guid: ecbc22b721e2fcf43b48d03ae743577c,
+    type: 3}
+  dust: {fileID: 1641645830018963349, guid: 543fa927c85b3024e9ba52bcb9a7f903, type: 3}
   agro: 10
   target: {fileID: 0}
   thrustScale: 900
@@ -1170,7 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8991727795b825049a7b930fea25e44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minVal: 0.5
+  minVal: 0.75
   maxVal: 2
   rn: 0
   distance: 0

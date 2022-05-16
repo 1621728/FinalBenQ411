@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BoidUnit : MonoBehaviour
 {
+    public GameObject dust;
     public GameObject CloneEffect;
     public float range = 10;
     public bool autobehave = false;
@@ -339,6 +340,12 @@ public class BoidUnit : MonoBehaviour
         {
             isFed++;
             Instantiate(CloneEffect, this.transform.position, Quaternion.identity);
+        }
+
+        //Touch astroid
+        if (collision.gameObject.tag == "Astroid")
+        {
+            Instantiate(dust, this.transform.position, Quaternion.identity);
         }
     }
 }
