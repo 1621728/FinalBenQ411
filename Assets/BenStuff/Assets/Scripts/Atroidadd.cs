@@ -27,6 +27,13 @@ public class Atroidadd : MonoBehaviour
              Instantiate(dust, contact.point, Quaternion.identity);
              Instantiate(dust, contact.point, Quaternion.identity);
             }
+
+            if (collision.gameObject.tag == "Enemy")
+            {
+                Instantiate(dust, contact.point, Quaternion.identity);
+                Instantiate(dust, contact.point, Quaternion.identity);
+                Instantiate(dust, contact.point, Quaternion.identity);
+            }
         }
     }
 }
