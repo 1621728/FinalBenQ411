@@ -345,7 +345,22 @@ public class BoidUnit : MonoBehaviour
         //Touch astroid
         if (collision.gameObject.tag == "Astroid")
         {
-            Instantiate(dust, this.transform.position, Quaternion.identity);
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                Instantiate(dust, contact.point, Quaternion.identity);
+            }
         }
     }
+
+    //Contact Points
+    //void (Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Astroid")
+    //    {
+    //        foreach (ContactPoint contact in collision.contacts)
+    //        {
+    //            Instantiate(dust, contact.point, Quaternion.identity);
+    //        }
+    //    }
+    //}
 }
