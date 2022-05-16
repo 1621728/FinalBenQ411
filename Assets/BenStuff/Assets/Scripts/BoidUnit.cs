@@ -338,6 +338,7 @@ public class BoidUnit : MonoBehaviour
         if (collision.gameObject.tag.Equals("Food"))
         {
             isFed++;
+            Instantiate(CloneEffect, this.transform.position, Quaternion.identity);
         }
     }
 }

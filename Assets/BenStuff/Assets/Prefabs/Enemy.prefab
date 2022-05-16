@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8991727795b825049a7b930fea25e44b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minVal: 1
+  minVal: 0.5
   maxVal: 2
   rn: 0
   distance: 0
