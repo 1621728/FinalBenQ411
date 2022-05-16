@@ -8,6 +8,7 @@ public class UnitDrag : MonoBehaviour
     [SerializeField]
     RectTransform boxVisual;
     private float fixedDeltaTime;
+    public int check;
 
     //logical
     Rect selectionBox;
@@ -37,8 +38,10 @@ public class UnitDrag : MonoBehaviour
                 
             if (Input.GetMouseButtonDown(0))
             {
-            startPosition = Input.mousePosition;
-            selectionBox = new Rect();
+             
+             startPosition = Input.mousePosition;
+             selectionBox = new Rect();
+             
             }
 
          //when dragging
@@ -59,10 +62,11 @@ public class UnitDrag : MonoBehaviour
         }
         else
         {
-            startPosition = Vector2.zero;
-            endPosition = Vector2.zero;
+            startPosition = Input.mousePosition;
+            endPosition = Input.mousePosition;
             DrawVisual();
-            
+            check = 0;
+
         }
 
         if (Input.GetKey("x"))
