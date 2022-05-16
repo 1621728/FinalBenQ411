@@ -6236,7 +6236,6 @@ GameObject:
   - component: {fileID: 1873140923}
   - component: {fileID: 1873140922}
   - component: {fileID: 1873140921}
-  - component: {fileID: 1873140920}
   - component: {fileID: 1873140919}
   m_Layer: 9
   m_Name: BoidUnit
@@ -6257,22 +6256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e440a949ba21ee647a1f24cab59ecda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &1873140920
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1873140918}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 5
 --- !u!114 &1873140921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6298,6 +6281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee57a923c008e5240bc2aae2fdaefe6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CloneEffect: {fileID: 3998901763891808854, guid: 730f013bade506c42b6ff819c3206d0f,
+    type: 3}
   range: 10
   autobehave: 0
   interpolationPeriod: 5

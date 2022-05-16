@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BoidUnit : MonoBehaviour
 {
+    public GameObject CloneEffect;
     public float range = 10;
     public bool autobehave = false;
     private float time = 0.0f;
@@ -188,6 +189,7 @@ public class BoidUnit : MonoBehaviour
         {
             isFed--;
             Instantiate(boid);
+            Instantiate(CloneEffect, this.transform.position, Quaternion.identity);
         }
 
         //Unlimited Power
@@ -196,6 +198,7 @@ public class BoidUnit : MonoBehaviour
             if (Input.GetKeyDown("space"))
             {
                 Instantiate(boid);
+                Instantiate(CloneEffect, this.transform.position, Quaternion.identity);
             }
         }
         
