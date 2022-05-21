@@ -6458,12 +6458,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee57a923c008e5240bc2aae2fdaefe6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color1: {r: 1, g: 0, b: 0, a: 1}
+  color2: {r: 1, g: 0.643056, b: 0, a: 1}
   damageTaken: 0
   dust: {fileID: 1641645830018963349, guid: 543fa927c85b3024e9ba52bcb9a7f903, type: 3}
   CloneEffect: {fileID: 3998901763891808854, guid: 730f013bade506c42b6ff819c3206d0f,
     type: 3}
   range: 10
-  autobehave: 1
+  autobehave: 0
   interpolationPeriod: 5
   die: {fileID: 0}
   rotateScale: 1

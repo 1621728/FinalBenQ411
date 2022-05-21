@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BoidUnit : MonoBehaviour
 {
+    public Color color1;
+    public Color color2;
     public int damageTaken = 0;
     public GameObject dust;
     public GameObject CloneEffect;
@@ -51,6 +53,7 @@ public class BoidUnit : MonoBehaviour
         isFed = 0;
         //GameObject.Find("Cm vcam1").GetComponent<CinemachineVirtualCamera>().Follow = this.transform;
         damageTaken = 0;
+        this.gameObject.GetComponent<SpriteRenderer>().color = color1;
     }
 
     void GetNewTarget()
@@ -113,14 +116,24 @@ public class BoidUnit : MonoBehaviour
     void Update()
     {
         
+
         //Health Reached Zero
-        if(damageTaken >= 2)
+        if (damageTaken >= 2)
         {
-            Ouch();
+            Invoke("Killob", .3f);
+        }
+        //Display damaged taken
+        if (damageTaken > 0)
+        {
+            Invoke("ChangeColorto2", 0.1f);
+        }
+        else
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().color = color1;
         }
 
         //If selected = false.
-        if(autobehave == true)
+        if (autobehave == true)
         {
             if (isSelected == false)
             {
@@ -236,6 +249,20 @@ public class BoidUnit : MonoBehaviour
 
     }
 
+    //Change color to Red
+    public void ChangeColorto1()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = color1;
+    }
+
+    //Change Color to Orange
+    public void ChangeColorto2()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = color2;
+        Invoke("ChangeColorto1", 0.1f);
+    }
+
+    //Destroy Object
     public void Killob()
     {
         Destroy(this.gameObject);
@@ -248,7 +275,7 @@ public class BoidUnit : MonoBehaviour
         touch.Play();
         Instantiate(collide, boid.transform);
         Instantiate(collideSparks, boid.transform);
-        Invoke("Killob", .3f);
+        //Invoke("Killob", .3f);
     }
 
     //On Collision
@@ -311,12 +338,15 @@ public class BoidUnit : MonoBehaviour
         {
             Debug.Log("Contact!!!");
             damageTaken++;
+            Ouch();
+
         }
 
         //Die on touch
         if (collision.gameObject.tag == "Enemy")
         {
             damageTaken++;
+            Ouch();
         }
 
         //teamUp
