@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6458,11 +6458,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee57a923c008e5240bc2aae2fdaefe6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageTaken: 0
   dust: {fileID: 1641645830018963349, guid: 543fa927c85b3024e9ba52bcb9a7f903, type: 3}
   CloneEffect: {fileID: 3998901763891808854, guid: 730f013bade506c42b6ff819c3206d0f,
     type: 3}
   range: 10
-  autobehave: 0
+  autobehave: 1
   interpolationPeriod: 5
   die: {fileID: 0}
   rotateScale: 1

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BoidUnit : MonoBehaviour
 {
+    public int damageTaken = 0;
     public GameObject dust;
     public GameObject CloneEffect;
     public float range = 10;
@@ -49,6 +50,7 @@ public class BoidUnit : MonoBehaviour
         isSelected = false;
         isFed = 0;
         //GameObject.Find("Cm vcam1").GetComponent<CinemachineVirtualCamera>().Follow = this.transform;
+        damageTaken = 0;
     }
 
     void GetNewTarget()
@@ -111,6 +113,12 @@ public class BoidUnit : MonoBehaviour
     void Update()
     {
         
+        //Health Reached Zero
+        if(damageTaken >= 2)
+        {
+            Ouch();
+        }
+
         //If selected = false.
         if(autobehave == true)
         {
@@ -302,13 +310,13 @@ public class BoidUnit : MonoBehaviour
         if (rb2.velocity.magnitude - cwrb.velocity.magnitude > ouchSpeed)
         {
             Debug.Log("Contact!!!");
-            Ouch();
+            damageTaken++;
         }
 
         //Die on touch
         if (collision.gameObject.tag == "Enemy")
         {
-            Ouch();
+            damageTaken++;
         }
 
         //teamUp
