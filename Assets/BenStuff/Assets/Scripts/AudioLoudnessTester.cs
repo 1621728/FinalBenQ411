@@ -11,7 +11,7 @@ public class AudioLoudnessTester : MonoBehaviour
 
     private float currentUpdateTime = 0f;
 
-    public float clipLoudness;
+    public static float clipLoudness;
     private float[] clipSampleData;
 
     public GameObject sprite;

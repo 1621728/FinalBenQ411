@@ -565,7 +565,6 @@ MonoBehaviour:
   audioSource: {fileID: 607319627}
   updateStep: 0.0001
   sampleDataLength: 1024
-  clipLoudness: 0
   sprite: {fileID: 237154398}
   sizeFactor: 5
   minSize: 1
@@ -1807,11 +1806,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607319626}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71df526d220162b438f26f5e71d182ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d99b11c200bfe9459b119a520daad30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 607319627}
+  updateStep: 0.00001
+  sampleDataLength: 1024
+  sprite: {fileID: 607319626}
+  sizeFactor: 1
+  minSize: 0
+  maxSize: 500
 --- !u!1 &614800396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,7 +2754,6 @@ MonoBehaviour:
   audioSource: {fileID: 607319627}
   updateStep: 0.0001
   sampleDataLength: 1024
-  clipLoudness: 0
   sprite: {fileID: 820623734}
   sizeFactor: 5
   minSize: 1
@@ -6414,6 +6419,7 @@ GameObject:
   - component: {fileID: 1873140922}
   - component: {fileID: 1873140921}
   - component: {fileID: 1873140919}
+  - component: {fileID: 1873140920}
   m_Layer: 9
   m_Name: BoidUnit
   m_TagString: Clone
@@ -6433,6 +6439,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e440a949ba21ee647a1f24cab59ecda5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1873140920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873140918}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d99b11c200bfe9459b119a520daad30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 607319627}
+  updateStep: 0.1
+  sampleDataLength: 1024
+  sprite: {fileID: 0}
+  sizeFactor: 1
+  minSize: 0
+  maxSize: 500
 --- !u!114 &1873140921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6458,8 +6483,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee57a923c008e5240bc2aae2fdaefe6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musictrail: 1
   color1: {r: 1, g: 0, b: 0, a: 1}
-  color2: {r: 1, g: 0.643056, b: 0, a: 1}
+  color2: {r: 0.5, g: 0.32156864, b: 0, a: 1}
   damageTaken: 0
   dust: {fileID: 1641645830018963349, guid: 543fa927c85b3024e9ba52bcb9a7f903, type: 3}
   CloneEffect: {fileID: 3998901763891808854, guid: 730f013bade506c42b6ff819c3206d0f,
@@ -7561,7 +7587,6 @@ MonoBehaviour:
   audioSource: {fileID: 607319627}
   updateStep: 0.0001
   sampleDataLength: 1024
-  clipLoudness: 0
   sprite: {fileID: 1972389899}
   sizeFactor: 5
   minSize: 1

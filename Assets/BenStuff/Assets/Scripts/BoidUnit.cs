@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BoidUnit : MonoBehaviour
 {
+    public bool musictrail;
     public Color color1;
     public Color color2;
     public int damageTaken = 0;
@@ -115,7 +116,11 @@ public class BoidUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //MusicTrail
+        if(musictrail == true)
+        {
+            this.gameObject.GetComponent<TrailRenderer>().startWidth = AudioLoudnessTester.clipLoudness;
+        }
 
         //Health Reached Zero
         if (damageTaken >= 2)
