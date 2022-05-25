@@ -11,7 +11,7 @@ public class BoidUnit : MonoBehaviour
     public int damageTaken = 0;
     public GameObject dust;
     public GameObject CloneEffect;
-    public float range = 10;
+    public float range = 5;
     public bool autobehave = false;
     private float time = 0.0f;
     public float interpolationPeriod = 0.1f;
@@ -59,18 +59,27 @@ public class BoidUnit : MonoBehaviour
 
     void GetNewTarget()
     {
+        GameObject[] varyTargets;
+
+        varyTargets = GameObject.FindGameObjectsWithTag("Food");
+
         Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider2D in colliderArray)
         {
+
+            //Set food as target if within range of public float "range"
             if(collider2D.gameObject.tag == "Food")
             {
+                foreach (var GameObject in varyTargets)
+                {
+
+                }
                 target = collider2D.gameObject.transform;
             }
             else
             {
-                GameObject[] varyTargets;
-
-                varyTargets = GameObject.FindGameObjectsWithTag("Food");
+                //Target random piece off food if one is not within range.
+                
 
                 if (varyTargets.Length > 0)
                 {
@@ -116,6 +125,8 @@ public class BoidUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         //MusicTrail
         if(musictrail == true)
         {
@@ -153,7 +164,22 @@ public class BoidUnit : MonoBehaviour
                     Debug.Log(Physics2D.OverlapCircleAll(transform.position, range));
                     Seek();
                 }
-            }          
+                else
+                {
+                    if (target == null)
+                    {
+                        Targets();
+                    }
+                }
+            }
+
+            //Clone Automatically
+            if (isFed > 0)
+            {
+                isFed--;
+                Instantiate(boid);
+                Instantiate(CloneEffect, this.transform.position, Quaternion.identity);
+            }
         }
         
         //Select all

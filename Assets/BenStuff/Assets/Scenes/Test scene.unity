@@ -6491,7 +6491,7 @@ MonoBehaviour:
   CloneEffect: {fileID: 3998901763891808854, guid: 730f013bade506c42b6ff819c3206d0f,
     type: 3}
   range: 10
-  autobehave: 0
+  autobehave: 1
   interpolationPeriod: 5
   die: {fileID: 0}
   rotateScale: 1
