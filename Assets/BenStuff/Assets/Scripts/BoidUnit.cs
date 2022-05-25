@@ -63,6 +63,9 @@ public class BoidUnit : MonoBehaviour
 
         varyTargets = GameObject.FindGameObjectsWithTag("Food");
 
+        float closestDistance = Mathf.Infinity;
+        Transform trans = null;
+
         Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider2D in colliderArray)
         {
@@ -70,11 +73,18 @@ public class BoidUnit : MonoBehaviour
             //Set food as target if within range of public float "range"
             if(collider2D.gameObject.tag == "Food")
             {
-                foreach (var GameObject in varyTargets)
+                foreach (GameObject go in varyTargets)
                 {
+                    float currentDistance;
+                    currentDistance = Vector3.Distance(transform.position, go.transform.position);
 
+                    if(currentDistance < closestDistance)
+                    {
+                        closestDistance = currentDistance;
+                        trans = go.transform;
+                    }
                 }
-                target = collider2D.gameObject.transform;
+                target = trans;
             }
             else
             {
@@ -290,7 +300,6 @@ public class BoidUnit : MonoBehaviour
     public void ChangeColorto2()
     {
         this.gameObject.GetComponent<SpriteRenderer>().color = color2;
-        Invoke("ChangeColorto1", 0.1f);
     }
 
     //Destroy Object
