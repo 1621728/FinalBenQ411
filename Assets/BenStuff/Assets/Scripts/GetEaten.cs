@@ -15,7 +15,7 @@ public class GetEaten : MonoBehaviour
     {
         foodPoint.Play();
         GameObject.Find("Counter").GetComponent<EverythingCounter>().foodnum--;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         Destroy(this.gameObject);
     }
     private void OnCollisionEnter2D(Collision2D collision)
