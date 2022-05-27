@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BoidUnit : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class BoidUnit : MonoBehaviour
     private float time = 0.0f;
     public float interpolationPeriod = 0.1f;
     private Transform target;
-    int randomTarget;
+    public Transform enemyt;
+    //int randomTarget;
     public AudioSource die;
     public float rotateScale;
     public float thrustScale;
@@ -41,7 +43,6 @@ public class BoidUnit : MonoBehaviour
     public bool sdam;
     //Divide number
     public float sdamn;
-    private GameObject targetObj;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,6 @@ public class BoidUnit : MonoBehaviour
        // isSelected = true;
         isSelected = false;
         isFed = 0;
-        //GameObject.Find("Cm vcam1").GetComponent<CinemachineVirtualCamera>().Follow = this.transform;
         damageTaken = 0;
         this.gameObject.GetComponent<SpriteRenderer>().color = color1;
     }
@@ -60,11 +60,16 @@ public class BoidUnit : MonoBehaviour
     void GetNewTarget()
     {
         GameObject[] varyTargets;
+        GameObject[] avoidTargets;
 
         varyTargets = GameObject.FindGameObjectsWithTag("Food");
 
+        avoidTargets = GameObject.FindGameObjectsWithTag("Enemy");
+
         float closestDistance = Mathf.Infinity;
+
         Transform trans = null;
+        Transform trans1 = null;
 
         Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider2D in colliderArray)
@@ -85,6 +90,22 @@ public class BoidUnit : MonoBehaviour
                     }
                 }
                 target = trans;
+            }
+            if(collider2D.gameObject.tag == "Enemy")
+            {
+                foreach(GameObject av in avoidTargets)
+                {
+                    float currentDistance1;
+                    currentDistance1 = Vector3.Distance(transform.position, av.transform.position);
+
+                    if (currentDistance1 < closestDistance)
+                    {
+                        closestDistance = currentDistance1;
+                        trans1 = av.transform;
+                    }
+
+                }
+                trans1 = enemyt;
             }
             //else
             //{
@@ -112,6 +133,15 @@ public class BoidUnit : MonoBehaviour
         //MoveForward
         rb2.AddForce(transform.up * thrustScale * Time.deltaTime);
     }
+
+    //void Avoid()
+    //{
+    //    Vector2 direction1 = new Vector2(enemyt.transform.position.x - this.transform.position.x, enemyt.transform.position.y - this.transform.position.y);
+    //    transform.up = direction1;
+
+    //    //MoveForward
+    //    rb2.AddForce(transform.up * thrustScale * Time.deltaTime);
+    //}
 
     void Targets()
     {
@@ -181,7 +211,11 @@ public class BoidUnit : MonoBehaviour
                         Targets();
                     }
                 }
+                //Avoid
+                //Avoid();
             }
+
+           
 
             //Clone Automatically
             if (isFed > 0)
