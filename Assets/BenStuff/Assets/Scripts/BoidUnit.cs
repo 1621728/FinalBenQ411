@@ -12,7 +12,7 @@ public class BoidUnit : MonoBehaviour
     public int damageTaken = 0;
     public GameObject dust;
     public GameObject CloneEffect;
-    public float range = 10;
+    public float range = 100;
     public bool autobehave = false;
     private float time = 0.0f;
     public float interpolationPeriod = 0.1f;

@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
     public GameObject loseMenuUI;
     public GameObject WinmenuUI;
     public GameObject Sizelist;
-    public static int targetscore = 50;
+    public static int targetscore = 500;
 
     public static int boidNumber;
     public Text uiText;
