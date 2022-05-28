@@ -170,7 +170,7 @@ public class BoidUnit : MonoBehaviour
         //MusicTrail
         if(musictrail == true)
         {
-            this.gameObject.GetComponent<TrailRenderer>().startWidth = AudioLoudnessTester.clipLoudness;
+            this.gameObject.GetComponent<TrailRenderer>().startWidth = AudioLoudnessTester.clipLoudness + 0.03f;
         }
 
         //Health Reached Zero

@@ -6493,6 +6493,7 @@ MonoBehaviour:
   range: 100
   autobehave: 1
   interpolationPeriod: 5
+  enemyt: {fileID: 0}
   die: {fileID: 0}
   rotateScale: 1
   thrustScale: 900
