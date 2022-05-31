@@ -182,6 +182,9 @@ public class BoidUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Find Food
+        GetNewTarget();
+
         //MusicTrail
         if(musictrail == true)
         {
