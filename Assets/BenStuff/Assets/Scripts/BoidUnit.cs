@@ -64,16 +64,16 @@ public class BoidUnit : MonoBehaviour
     void GetNewTarget()
     {
         GameObject[] varyTargets;
-        GameObject[] avoidTargets;
+        //GameObject[] avoidTargets;
 
         varyTargets = GameObject.FindGameObjectsWithTag("Food");
 
-        avoidTargets = GameObject.FindGameObjectsWithTag("Enemy");
+        //avoidTargets = GameObject.FindGameObjectsWithTag("Enemy");
 
         float closestDistance = Mathf.Infinity;
 
         Transform trans = null;
-        Transform trans1 = null;
+        //Transform trans1 = null;
 
         Collider2D[] colliderArray = Physics2D.OverlapCircleAll(transform.position, range);
         foreach (Collider2D collider2D in colliderArray)
@@ -95,22 +95,22 @@ public class BoidUnit : MonoBehaviour
                 }
                 target = trans;
             }
-            if(collider2D.gameObject.tag == "Enemy")
-            {
-                foreach(GameObject av in avoidTargets)
-                {
-                    float currentDistance1;
-                    currentDistance1 = Vector3.Distance(transform.position, av.transform.position);
+            //if(collider2D.gameObject.tag == "Enemy")
+            //{
+            //    foreach(GameObject av in avoidTargets)
+            //    {
+            //        float currentDistance1;
+            //        currentDistance1 = Vector3.Distance(transform.position, av.transform.position);
 
-                    if (currentDistance1 < closestDistance)
-                    {
-                        closestDistance = currentDistance1;
-                        trans1 = av.transform;
-                    }
+            //        if (currentDistance1 < closestDistance)
+            //        {
+            //            closestDistance = currentDistance1;
+            //            trans1 = av.transform;
+            //        }
 
-                }
-                trans1 = enemyt;
-            }
+            //    }
+            //    trans1 = enemyt;
+            //}
             //else
             //{
             //    //Target random piece off food if one is not within range.
@@ -183,7 +183,11 @@ public class BoidUnit : MonoBehaviour
     void Update()
     {
         //Find Food
-        GetNewTarget();
+        if(autobehave == true)
+        {
+            GetNewTarget();
+        }
+        
 
         //MusicTrail
         if(musictrail == true)
