@@ -92,8 +92,18 @@ public class BoidUnit : MonoBehaviour
                         closestDistance = currentDistance;
                         trans = go.transform;
                     }
+                    if (currentDistance < 2)
+                    {
+                        thrustScale = 450;
+                    }
+                    else
+                    {
+                        thrustScale = 900;
+                    }
                 }
                 target = trans;
+
+                
             }
             //if(collider2D.gameObject.tag == "Enemy")
             //{
