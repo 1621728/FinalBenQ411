@@ -43,6 +43,8 @@ public class BoidUnit : MonoBehaviour
     public bool sdam;
     //Divide number
     public float sdamn;
+    public float lifetime;
+    public int selecttime = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +57,8 @@ public class BoidUnit : MonoBehaviour
         isFed = 0;
         damageTaken = 0;
         this.gameObject.GetComponent<SpriteRenderer>().color = color1;
+        lifetime = 0f;
+        StartCoroutine(ExampleCoroutine());
     }
 
     void GetNewTarget()
@@ -161,12 +165,23 @@ public class BoidUnit : MonoBehaviour
         rb2.AddForce(transform.up * thrustScale * Time.deltaTime);
     }
 
+    IEnumerator ExampleCoroutine()
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(selecttime);
+        lifetime = Time.time;
+
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+    }
 
     // Update is called once per frame
     void Update()
     {
-        
-
         //MusicTrail
         if(musictrail == true)
         {
@@ -188,7 +203,7 @@ public class BoidUnit : MonoBehaviour
             this.gameObject.GetComponent<SpriteRenderer>().color = color1;
         }
 
-        //If selected = false.
+        //If autobehave = true.
         if (autobehave == true)
         {
             if (isSelected == false)
@@ -262,11 +277,17 @@ public class BoidUnit : MonoBehaviour
             followMouse();
         }
 
-            ///boid Highlight
+            //if Selected = true;
             if (isSelected == true)
         {
             boid.transform.GetChild(0).gameObject.SetActive(true);
-            GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().Follow = this.transform;
+
+            if (lifetime >= selecttime)
+            {
+                GameObject.Find("CM vcam1").GetComponent<CinemachineVirtualCamera>().Follow = this.transform;
+
+            }
+            
         }
         else
         {
@@ -352,6 +373,7 @@ public class BoidUnit : MonoBehaviour
         //Invoke("Killob", .3f);
     }
 
+    //ingnore this
     //On Collision
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
@@ -453,17 +475,10 @@ public class BoidUnit : MonoBehaviour
             isFed++;
             Instantiate(CloneEffect, this.transform.position, Quaternion.identity);
         }
-
-        //Touch astroid
-        if (collision.gameObject.tag == "Astroid")
-        {
-            foreach (ContactPoint2D contact in collision.contacts)
-            {
-                Instantiate(dust, contact.point, Quaternion.identity);
-            }
-        }
     }
 
+
+    //ignore this
     //Contact Points
     //void (Collision collision)
     //{

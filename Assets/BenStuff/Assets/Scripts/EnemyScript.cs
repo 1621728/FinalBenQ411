@@ -14,6 +14,7 @@ public class EnemyScript : MonoBehaviour
     public float thrustScale;
     public float distance;
     private GameObject chase;
+    public float multisize = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +89,9 @@ public class EnemyScript : MonoBehaviour
 
     public void OnCollisionEnter2D(Collider2D collision)
     {
+
+        
+
         if (collision.gameObject.tag == "Astroid")
         {
             Instantiate(dust, this.transform.position, Quaternion.identity);
@@ -95,6 +99,7 @@ public class EnemyScript : MonoBehaviour
         if (collision.gameObject.tag == "Clone")
         {
             Instantiate(boidguts, this.transform.position, Quaternion.identity);
+            this.transform.localScale = Vector2.one * multisize;
         }
     }
 }

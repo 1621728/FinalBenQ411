@@ -21,18 +21,25 @@ public class Atroidadd : MonoBehaviour
     {
         foreach (ContactPoint2D contact in collision.contacts)
         {
-            if (collision.gameObject.tag == "Astroid")
-            {
-             Instantiate(dust, contact.point, Quaternion.identity);
-             Instantiate(dust, contact.point, Quaternion.identity);
-             Instantiate(dust, contact.point, Quaternion.identity);
-            }
+            //if (collision.gameObject.tag == "Astroid")
+            //{
+            // Instantiate(dust, contact.point, Quaternion.identity);
+            // Instantiate(dust, contact.point, Quaternion.identity);
+            // Instantiate(dust, contact.point, Quaternion.identity);
+            //}
 
-            if (collision.gameObject.tag == "Enemy")
+            //if (collision.gameObject.tag == "Enemy")
+            //{
+            //    Instantiate(dust, contact.point, Quaternion.identity);
+            //    Instantiate(dust, contact.point, Quaternion.identity);
+            //    Instantiate(dust, contact.point, Quaternion.identity);
+            //}
+            if (collision.gameObject)
             {
                 Instantiate(dust, contact.point, Quaternion.identity);
-                Instantiate(dust, contact.point, Quaternion.identity);
-                Instantiate(dust, contact.point, Quaternion.identity);
+                //Instantiate(dust, contact.point, Quaternion.identity);
+                //Instantiate(dust, contact.point, Quaternion.identity);
+                //&& GetComponent<Rigidbody2D>().velocity.magnitude - collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude > 15
             }
         }
     }
